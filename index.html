@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K Nails | North Hollywood, CA | Natural & Organic Nail Care</title>
+<meta name="description" content="K Nails in North Hollywood. Organic dipping powder, natural nails, artificial nails, full body waxing. Ask for Daisy or Kelly. Loyalty rewards. (818) 764-3088.">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+:root{
+  --forest:#1a2e1e;
+  --moss:#2d4a32;
+  --sage:#5a7a5e;
+  --sage-light:#8aaa8e;
+  --sage-pale:#c8daca;
+  --mint:#e8f2e9;
+  --cream:#f7f5f0;
+  --sand:#ede8df;
+  --warm:#faf8f4;
+  --gold:#b8953a;
+  --gold-light:#d4b460;
+  --ink:#1a1e1a;
+  --text:#2e3a2e;
+  --muted:#7a8c7a;
+  --white:#ffffff;
+  --pad:clamp(20px,5vw,72px);
+}
+body{background:var(--warm);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;padding-bottom:72px}
+
+/* STICKY BAR */
+.sticky-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--forest);border-top:2px solid var(--sage)}
+.sticky-bar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:11px 6px;text-decoration:none;color:rgba(255,255,255,0.55);font-size:10px;font-weight:400;letter-spacing:0.5px;border-right:1px solid rgba(255,255,255,0.06);transition:color 0.2s,background 0.2s}
+.sticky-bar a:last-child{border-right:none}
+.sticky-bar a:hover{color:var(--sage-pale)}
+.sticky-bar a.primary{background:var(--sage);color:var(--white)}
+.sticky-bar a.primary:hover{background:var(--moss)}
+.bar-icon{font-size:16px;line-height:1}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:clamp(12px,2vw,18px) var(--pad);display:flex;align-items:center;justify-content:space-between;gap:16px;transition:all 0.4s}
+nav.scrolled{background:rgba(247,245,240,0.97);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(26,46,30,0.07)}
+.nav-logo{font-family:'Libre Baskerville',serif;font-size:clamp(16px,2.5vw,21px);color:var(--white);transition:color 0.4s;white-space:nowrap;flex-shrink:0;letter-spacing:.5px}
+nav.scrolled .nav-logo{color:var(--forest)}
+.nav-logo em{font-style:italic;color:var(--sage-pale)}
+nav.scrolled .nav-logo em{color:var(--sage)}
+.nav-links{display:flex;gap:clamp(10px,2vw,28px);list-style:none;align-items:center}
+.nav-hide{display:none}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:clamp(11px,1.3vw,12px);letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap}
+nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--sage-pale)!important}
+nav.scrolled .nav-links a:hover{color:var(--sage)!important}
+.nav-book{padding:clamp(7px,1vw,9px) clamp(14px,1.8vw,20px);border:1px solid rgba(255,255,255,0.4);color:var(--white)!important;border-radius:4px;transition:all 0.2s!important}
+nav.scrolled .nav-book{border-color:var(--sage-light);color:var(--sage)!important}
+.nav-book:hover{background:var(--sage)!important;color:var(--white)!important;border-color:var(--sage)!important}
+
+/* HERO */
+.hero{min-height:100svh;background:var(--forest);position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:clamp(100px,14vw,160px) var(--pad) clamp(44px,7vw,80px)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 75% 25%,rgba(90,122,94,0.25) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 80% at 15% 85%,rgba(90,122,94,0.1) 0%,transparent 50%),
+    radial-gradient(ellipse 30% 30% at 50% 10%,rgba(184,149,58,0.06) 0%,transparent 45%)}
+/* Botanical lines */
+.hero-line{position:absolute;opacity:0.06}
+.hero-line.a{top:0;right:20%;width:1px;height:100%;background:linear-gradient(180deg,transparent,var(--sage-pale),transparent)}
+.hero-line.b{top:0;right:35%;width:1px;height:60%;background:linear-gradient(180deg,transparent,var(--sage-pale),transparent)}
+
+.hero-inner{position:relative;z-index:1;max-width:620px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:clamp(10px,1.4vw,11px);letter-spacing:4px;text-transform:uppercase;color:var(--sage-pale);margin-bottom:clamp(16px,2.5vw,24px);opacity:0;animation:grow 0.9s ease forwards 0.1s}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--sage-pale)}
+.hero-h1{font-family:'Libre Baskerville',serif;font-size:clamp(48px,9.5vw,108px);color:var(--white);line-height:.95;margin-bottom:clamp(12px,2vw,20px);opacity:0;animation:grow 0.9s ease forwards 0.25s;letter-spacing:-1px}
+.hero-h1 em{font-style:italic;color:var(--sage-pale);display:block}
+.hero-rule{width:56px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:clamp(16px,2.5vw,24px);opacity:0;animation:grow 0.9s ease forwards 0.4s}
+.hero-p{font-size:clamp(13px,1.8vw,15px);color:rgba(255,255,255,.45);line-height:1.9;max-width:420px;margin-bottom:clamp(28px,4vw,44px);opacity:0;animation:grow 0.9s ease forwards 0.5s}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px;opacity:0;animation:grow 0.9s ease forwards 0.65s}
+.hero-fact{display:flex;align-items:center;gap:8px;background:rgba(90,122,94,0.15);border:1px solid rgba(90,122,94,0.3);border-radius:6px;padding:9px 14px;font-size:clamp(11px,1.4vw,13px);color:rgba(255,255,255,.7)}
+.hero-fact strong{color:var(--sage-pale);font-weight:400}
+@keyframes grow{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* TICKER */
+.ticker{background:var(--sage);padding:11px 0;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-block;animation:ticker 26s linear infinite}
+.ticker-track span{font-size:clamp(9px,1.3vw,11px);letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.9);font-weight:400;margin:0 20px}
+.ticker-track .dot{color:rgba(255,255,255,.35);margin:0 4px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* QUICK STRIP */
+.quick-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));background:var(--mint);border-bottom:1px solid var(--sage-pale)}
+.quick-item{padding:clamp(14px,2.5vw,20px) clamp(16px,2.5vw,24px);border-right:1px solid var(--sage-pale);text-decoration:none;color:var(--text);transition:background 0.2s}
+.quick-item:last-child{border-right:none}
+.quick-item:hover{background:var(--sage-pale)}
+.quick-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:500}
+.quick-val{font-family:'Libre Baskerville',serif;font-size:clamp(14px,2.3vw,19px);color:var(--forest)}
+.quick-val.accent{color:var(--sage)}
+
+/* SECTION */
+.section{padding:clamp(48px,7vw,96px) var(--pad)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--sage);margin-bottom:14px;font-weight:500}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--sage);flex-shrink:0}
+.section-h2{font-family:'Libre Baskerville',serif;font-size:clamp(30px,5vw,56px);line-height:1.1;color:var(--ink);margin-bottom:clamp(16px,2.5vw,28px);letter-spacing:-.5px}
+.section-h2 em{font-style:italic;color:var(--sage)}
+
+/* ORGANIC HIGHLIGHT STRIP */
+.organic-strip{background:var(--forest);padding:clamp(32px,5vw,56px) var(--pad)}
+.organic-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(12px,2vw,2px)}
+.organic-item{padding:clamp(20px,3vw,32px);border-right:1px solid rgba(255,255,255,0.06);text-align:center}
+.organic-item:last-child{border-right:none}
+.organic-icon{font-size:clamp(24px,4vw,32px);margin-bottom:12px}
+.organic-title{font-family:'Libre Baskerville',serif;font-size:clamp(14px,2vw,18px);color:var(--white);margin-bottom:8px;font-weight:400}
+.organic-desc{font-size:clamp(11px,1.4vw,13px);color:rgba(255,255,255,.4);line-height:1.65}
+
+/* SERVICES */
+.services-section{background:var(--warm);padding:clamp(48px,7vw,96px) var(--pad)}
+.services-lead{margin-bottom:clamp(28px,4vw,44px)}
+.services-lead p{font-size:clamp(13px,1.7vw,15px);color:var(--muted);line-height:1.85;margin-bottom:18px}
+.open-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;background:var(--mint);border:1px solid var(--sage-pale);border-radius:6px;font-size:clamp(11px,1.4vw,12px);color:var(--moss);letter-spacing:.3px;font-weight:500}
+.open-dot{width:6px;height:6px;background:#4caf7d;border-radius:50%;flex-shrink:0}
+.accordion{border:1px solid var(--sage-pale);border-radius:12px;overflow:hidden;background:var(--white)}
+.acc-item{border-bottom:1px solid var(--sage-pale)}
+.acc-item:last-child{border-bottom:none}
+.acc-trigger{width:100%;background:var(--white);border:none;cursor:pointer;padding:clamp(14px,2.5vw,18px) clamp(16px,3vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;transition:background 0.2s;font-family:'DM Sans',sans-serif}
+.acc-trigger:hover,.acc-trigger.open{background:var(--mint)}
+.acc-left{display:flex;align-items:center;gap:clamp(10px,2vw,16px)}
+.acc-icon{font-size:clamp(18px,2.5vw,22px)}
+.acc-name{font-family:'Libre Baskerville',serif;font-size:clamp(17px,2.3vw,21px);color:var(--ink);font-weight:400}
+.acc-arrow{width:24px;height:24px;border-radius:50%;border:1px solid var(--sage-pale);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);flex-shrink:0;transition:transform 0.3s,background 0.2s}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg);background:var(--sage);border-color:var(--sage);color:var(--white)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease;background:var(--mint);padding:0 clamp(16px,3vw,24px)}
+.acc-body.open{max-height:180px;padding:clamp(12px,2vw,16px) clamp(16px,3vw,24px)}
+.acc-desc{font-size:clamp(13px,1.6vw,14px);color:var(--muted);line-height:1.8;margin-bottom:12px}
+.acc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:4px 12px;background:rgba(90,122,94,0.1);color:var(--moss);border-radius:4px;font-size:11px;font-weight:500}
+
+/* STAFF SPOTLIGHT */
+.staff-section{background:var(--forest);padding:clamp(48px,7vw,80px) var(--pad)}
+.staff-section .eyebrow{color:var(--sage-pale)}
+.staff-section .eyebrow::before{background:var(--sage-pale)}
+.staff-section .section-h2{color:var(--white)}
+.staff-section .section-h2 em{color:var(--sage-pale)}
+.staff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,2vw,20px);margin-top:clamp(28px,4vw,44px)}
+.staff-card{background:rgba(90,122,94,0.1);border:1px solid rgba(90,122,94,0.2);border-radius:12px;padding:clamp(20px,3vw,28px);transition:border-color 0.2s,background 0.2s}
+.staff-card:hover{border-color:rgba(138,170,142,0.4);background:rgba(90,122,94,0.18)}
+.staff-initial{font-family:'Libre Baskerville',serif;font-size:clamp(36px,6vw,52px);color:var(--sage-pale);line-height:1;margin-bottom:12px;font-style:italic;opacity:.7}
+.staff-name{font-family:'Libre Baskerville',serif;font-size:clamp(20px,3vw,26px);color:var(--white);font-weight:400;margin-bottom:8px}
+.staff-desc{font-size:clamp(13px,1.6vw,14px);color:rgba(255,255,255,.45);line-height:1.75}
+.staff-tag{display:inline-block;margin-top:14px;padding:5px 12px;background:rgba(184,149,58,.12);border:1px solid rgba(184,149,58,.25);border-radius:4px;font-size:11px;color:var(--gold-light);letter-spacing:.5px}
+
+/* REVIEWS */
+.review-section{background:var(--cream);padding:clamp(48px,7vw,80px) var(--pad)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,2vw,18px);margin-top:clamp(28px,4vw,44px)}
+.review-card{background:var(--white);border:1px solid var(--sage-pale);border-radius:12px;padding:clamp(18px,3vw,24px);transition:box-shadow 0.2s}
+.review-card:hover{box-shadow:0 4px 20px rgba(90,122,94,0.1)}
+.review-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:10px}
+.review-text{font-size:clamp(13px,1.6vw,14px);color:var(--muted);line-height:1.8;font-style:italic;margin-bottom:12px}
+.review-author{font-size:11px;color:var(--sage-light);letter-spacing:1px;text-transform:uppercase}
+
+/* PERKS */
+.perks-section{background:var(--mint);padding:clamp(36px,5vw,60px) var(--pad)}
+.perks-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px}
+.perk{background:rgba(255,255,255,.6);padding:clamp(18px,3vw,28px);text-align:center;border:1px solid rgba(90,122,94,.08)}
+.perk-icon{font-size:clamp(22px,3.5vw,28px);margin-bottom:10px}
+.perk-title{font-family:'Libre Baskerville',serif;font-size:clamp(14px,2vw,17px);color:var(--forest);margin-bottom:6px;font-weight:400}
+.perk-desc{font-size:clamp(11px,1.4vw,12px);color:var(--muted);line-height:1.6}
+
+/* HOURS */
+.hours-section{background:var(--warm);padding:clamp(48px,7vw,96px) var(--pad)}
+.hours-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,5vw,72px);margin-top:clamp(24px,4vw,40px);align-items:start}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid var(--sand)}
+.hours-table tr:last-child{border-bottom:none}
+.hours-table td{padding:clamp(10px,1.5vw,13px) 0;font-size:clamp(13px,1.6vw,14px)}
+.hours-table .day{color:var(--muted)}
+.hours-table .time{color:var(--moss);text-align:right;font-weight:400}
+.hours-table .closed{color:var(--muted);text-align:right;opacity:.4}
+.hours-table tr.today .day{color:var(--ink);font-weight:500}
+.hours-table tr.today .time{font-weight:500}
+.contact-stack{display:flex;flex-direction:column;gap:clamp(12px,2vw,14px)}
+.contact-tile{background:var(--white);border-radius:12px;padding:clamp(16px,2.5vw,22px);border:1px solid var(--sage-pale);transition:border-color 0.2s,box-shadow 0.2s}
+.contact-tile:hover{border-color:var(--sage-light);box-shadow:0 4px 16px rgba(90,122,94,0.08)}
+.contact-tile-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.contact-tile-val{font-family:'Libre Baskerville',serif;font-size:clamp(20px,3.2vw,26px);color:var(--ink);text-decoration:none;display:block;font-weight:400;transition:color 0.2s}
+.contact-tile-val:hover{color:var(--sage)}
+.contact-tile-sub{font-size:clamp(11px,1.4vw,13px);color:var(--muted);margin-top:4px;line-height:1.5}
+.dir-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;background:var(--mint);border:1px solid var(--sage-pale);color:var(--moss);border-radius:6px;font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s}
+.dir-btn:hover{background:var(--sage);color:var(--white);border-color:var(--sage)}
+
+/* BOOKING */
+.booking-section{background:var(--forest);padding:clamp(48px,7vw,96px) var(--pad)}
+.booking-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(32px,5vw,80px);align-items:center}
+.booking-section .eyebrow{color:var(--sage-pale)}
+.booking-section .eyebrow::before{background:var(--sage-pale)}
+.booking-section .section-h2{color:var(--white)}
+.booking-section .section-h2 em{color:var(--sage-pale)}
+.booking-intro{font-size:clamp(13px,1.7vw,15px);color:rgba(255,255,255,.45);line-height:1.85;margin-top:14px}
+.booking-form{background:var(--warm);border-radius:16px;padding:clamp(24px,4vw,44px)}
+.form-title{font-family:'Libre Baskerville',serif;font-size:clamp(20px,3vw,28px);color:var(--ink);margin-bottom:clamp(20px,3vw,28px);font-weight:400}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:500}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;background:var(--white);border:1px solid var(--sage-pale);border-radius:8px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:clamp(13px,1.5vw,14px);font-weight:300;outline:none;transition:border-color 0.2s;appearance:none;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted)}
+.form-group textarea{min-height:68px;resize:vertical}
+.form-submit{width:100%;padding:clamp(13px,2vw,16px);background:var(--sage);color:var(--white);border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:clamp(13px,1.5vw,14px);font-weight:400;letter-spacing:.5px;cursor:pointer;transition:background 0.2s;margin-top:4px}
+.form-submit:hover{background:var(--moss)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:clamp(36px,5vw,56px) var(--pad) clamp(20px,3vw,28px)}
+.footer-logo{font-family:'Libre Baskerville',serif;font-size:clamp(20px,3.5vw,28px);color:var(--white);margin-bottom:10px;letter-spacing:.5px;font-weight:400}
+.footer-logo em{font-style:italic;color:var(--sage-light)}
+.footer-tagline{font-size:clamp(12px,1.5vw,13px);color:rgba(255,255,255,.3);line-height:1.8;margin-bottom:14px;max-width:380px}
+.footer-phone{font-family:'Libre Baskerville',serif;font-size:clamp(20px,3vw,24px);color:var(--sage-light);text-decoration:none;display:block;margin-bottom:clamp(24px,4vw,36px);transition:color 0.2s}
+.footer-phone:hover{color:var(--white)}
+.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:clamp(20px,3vw,40px);padding-bottom:clamp(20px,3vw,28px);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:clamp(16px,2vw,20px)}
+.footer-col h4{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:12px;font-weight:500}
+.footer-col ul{list-style:none}
+.footer-col ul li{font-size:clamp(11px,1.4vw,13px);color:rgba(255,255,255,.33);margin-bottom:8px;line-height:1.5}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:11px;color:rgba(255,255,255,.14)}
+.footer-seo{font-size:10px;color:rgba(255,255,255,.07)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(min-width:640px){
+  body{padding-bottom:0}
+  .sticky-bar{display:none}
+  .nav-hide{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <a href="tel:8187643088" class="primary"><span class="bar-icon">📞</span>Call Now</a>
+  <a href="sms:8187643088"><span class="bar-icon">💬</span>Text Us</a>
+  <a href="https://www.google.com/maps/search/K+Nails+12650+Sherman+Way+North+Hollywood" target="_blank"><span class="bar-icon">📍</span>Directions</a>
+  <a href="#booking"><span class="bar-icon">📅</span>Book</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo"><em>K</em> Nails</div>
+  <ul class="nav-links">
+    <li class="nav-hide"><a href="#services">Services</a></li>
+    <li class="nav-hide"><a href="#staff">Our Team</a></li>
+    <li class="nav-hide"><a href="#hours">Hours</a></li>
+    <li><a href="#booking" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-line a"></div>
+  <div class="hero-line b"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Bellaire Plaza · North Hollywood, CA</div>
+    <h1 class="hero-h1">Natural.<br><em>Organic.</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-p">One of North Hollywood's original nail salons — specializing in organic dipping powder, natural nail care, and full body waxing since the beginning.</p>
+    <div class="hero-facts">
+      <div class="hero-fact"><strong>4.7 ★</strong> Google Rating</div>
+      <div class="hero-fact"><strong>108</strong> Yelp Reviews</div>
+      <div class="hero-fact"><strong>📞</strong> (818) 764-3088</div>
+      <div class="hero-fact"><strong>🌿 Organic</strong> Dip Powder</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Natural Nails</span><span class="dot">✦</span><span>Organic Dip Powder</span><span class="dot">✦</span><span>Manicure</span><span class="dot">✦</span><span>Pedicure</span><span class="dot">✦</span><span>Acrylic Nails</span><span class="dot">✦</span><span>Gel Nails</span><span class="dot">✦</span><span>Full Body Waxing</span><span class="dot">✦</span><span>Loyalty Rewards</span><span class="dot">✦</span><span>Gift Cards</span><span class="dot">✦</span><span>Natural Nails</span><span class="dot">✦</span><span>Organic Dip Powder</span><span class="dot">✦</span><span>Manicure</span><span class="dot">✦</span><span>Pedicure</span><span class="dot">✦</span><span>Acrylic Nails</span><span class="dot">✦</span><span>Gel Nails</span><span class="dot">✦</span><span>Full Body Waxing</span><span class="dot">✦</span><span>Loyalty Rewards</span><span class="dot">✦</span><span>Gift Cards</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- QUICK STRIP -->
+<div class="quick-strip reveal">
+  <a href="tel:8187643088" class="quick-item">
+    <div class="quick-label">Call Us</div>
+    <div class="quick-val accent">(818) 764-3088</div>
+  </a>
+  <div class="quick-item">
+    <div class="quick-label">Today's Hours</div>
+    <div class="quick-val" id="hours-today">9:30am – 7pm</div>
+  </div>
+  <div class="quick-item">
+    <div class="quick-label">Location</div>
+    <div class="quick-val">Sherman Way, NoHo</div>
+  </div>
+  <div class="quick-item">
+    <div class="quick-label">Specialty</div>
+    <div class="quick-val accent">Organic Dip</div>
+  </div>
+</div>
+
+<!-- ORGANIC HIGHLIGHT -->
+<div class="organic-strip reveal">
+  <div class="organic-item">
+    <div class="organic-icon">🌿</div>
+    <div class="organic-title">Organic Dip Powder</div>
+    <div class="organic-desc">Our signature service — healthier, longer-lasting, and better for your natural nails</div>
+  </div>
+  <div class="organic-item">
+    <div class="organic-icon">💚</div>
+    <div class="organic-title">Natural Nail Care</div>
+    <div class="organic-desc">Specialized techniques that protect and strengthen your natural nail bed</div>
+  </div>
+  <div class="organic-item">
+    <div class="organic-icon">🎁</div>
+    <div class="organic-title">Loyalty Rewards</div>
+    <div class="organic-desc">Loyalty card program and gift certificates for every occasion</div>
+  </div>
+  <div class="organic-item">
+    <div class="organic-icon">🏆</div>
+    <div class="organic-title">NoHo Original</div>
+    <div class="organic-desc">One of the first nail salons in the neighborhood — trusted for years</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section reveal" id="services">
+  <div class="services-lead">
+    <div class="eyebrow">Services</div>
+    <h2 class="section-h2">Clean nails,<br><em>natural beauty.</em></h2>
+    <p>From our signature organic dip powder to full body waxing — every service focused on keeping your nails healthy and looking their best.</p>
+    <div class="open-pill"><div class="open-dot"></div>Mon–Sat Open · Walk-ins Welcome</div>
+  </div>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">🌿</span><span class="acc-name">Organic Dip Powder</span></div>
+        <span class="acc-arrow">▾</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-desc">Our specialty. Long-lasting color without UV lamps, gentler on natural nails. Organic formula for a healthier finish.</div>
+        <div class="acc-tags"><span class="tag">Organic Formula</span><span class="tag">Natural Length</span><span class="tag">Extensions</span></div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">💅</span><span class="acc-name">Manicure</span></div>
+        <span class="acc-arrow">▾</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-desc">Classic nail care with shaping, cuticles, massage, and your choice of polish. Natural or enhanced.</div>
+        <div class="acc-tags"><span class="tag">Classic</span><span class="tag">Gel</span><span class="tag">Natural</span><span class="tag">French</span></div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">🦶</span><span class="acc-name">Pedicure</span></div>
+        <span class="acc-arrow">▾</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-desc">Full foot care including soak, exfoliation, callus remover, massage, and polish. Ask about the callus treatment — clients love it.</div>
+        <div class="acc-tags"><span class="tag">Spa Pedicure</span><span class="tag">Callus Remover</span><span class="tag">Gel</span></div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">✨</span><span class="acc-name">Artificial Nails</span></div>
+        <span class="acc-arrow">▾</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-desc">Custom acrylic and gel extensions in your choice of length and shape. Built for durability and style.</div>
+        <div class="acc-tags"><span class="tag">Acrylic</span><span class="tag">Gel</span><span class="tag">Full Set</span><span class="tag">Fill</span></div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">🎨</span><span class="acc-name">Nail Art & Design</span></div>
+        <span class="acc-arrow">▾</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-desc">Custom nail art in any style. Bring your inspiration photo and we'll make it happen.</div>
+        <div class="acc-tags"><span class="tag">Custom Art</span><span class="tag">Chrome</span><span class="tag">Ombré</span><span class="tag">Minimalist</span></div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <div class="acc-left"><span class="acc-icon">🌸</span><span class="acc-name">Full Body Waxing</span></div>
+        <span class="acc-arrow">▾</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-desc">Professional full body waxing services performed with care and precision.</div>
+        <div class="acc-tags"><span class="tag">Full Body</span><span class="tag">Eyebrows</span><span class="tag">Face</span><span class="tag">Arms & Legs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="staff-section reveal" id="staff">
+  <div class="eyebrow">Meet the Team</div>
+  <h2 class="section-h2">Ask for <em>Daisy or Kelly</em></h2>
+  <div class="staff-grid">
+    <div class="staff-card">
+      <div class="staff-initial">D</div>
+      <div class="staff-name">Daisy</div>
+      <div class="staff-desc">Praised by clients for her attention to detail and warm, welcoming personality. Daisy makes every visit feel personal and unhurried.</div>
+      <div class="staff-tag">✦ Client Favorite</div>
+    </div>
+    <div class="staff-card">
+      <div class="staff-initial">K</div>
+      <div class="staff-name">Kelly</div>
+      <div class="staff-desc">Known for precision work and a calm, friendly chair-side manner. Kelly's regulars come back appointment after appointment.</div>
+      <div class="staff-tag">✦ Client Favorite</div>
+    </div>
+    <div class="staff-card" style="background:rgba(184,149,58,0.08);border-color:rgba(184,149,58,0.2)">
+      <div class="staff-initial" style="color:var(--gold-light)">K</div>
+      <div class="staff-name">K Nails Team</div>
+      <div class="staff-desc">Our full team is highly trained and genuinely passionate about nail care. Every technician brings expertise and a smile to every appointment.</div>
+      <div class="staff-tag" style="background:rgba(184,149,58,.12);border-color:rgba(184,149,58,.2);color:var(--gold-light)">✦ Highly Trained Staff</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="review-section reveal">
+  <div class="eyebrow">What Clients Say</div>
+  <h2 class="section-h2">108 reviews,<br><em>one story.</em></h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Ask for Daisy — she is incredible. My nails have never looked this good. She takes her time and really listens to what you want."</div>
+      <div class="review-author">— Yelp Review · North Hollywood</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"The organic dipping powder is a game changer. My nails are so much healthier since I switched from acrylics. Kelly does an amazing job every time."</div>
+      <div class="review-author">— Yelp Review · North Hollywood</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Make sure to ask for the callus remover during your pedicure — it was the best part of my whole visit. I left feeling like a new person."</div>
+      <div class="review-author">— Google Review · North Hollywood</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERKS -->
+<div class="perks-section reveal">
+  <div class="perks-inner">
+    <div class="perk">
+      <div class="perk-icon">🃏</div>
+      <div class="perk-title">Loyalty Card</div>
+      <div class="perk-desc">Earn rewards on every visit — frequent clients save on future services</div>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">🎁</div>
+      <div class="perk-title">Gift Certificates</div>
+      <div class="perk-desc">The perfect gift for any occasion. Available in any amount</div>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">♿</div>
+      <div class="perk-title">Accessible</div>
+      <div class="perk-desc">Wheelchair accessible location inside Bellaire Plaza</div>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">🅿️</div>
+      <div class="perk-title">Free Parking</div>
+      <div class="perk-desc">On-site parking available at Bellaire Plaza</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOURS -->
+<section class="hours-section reveal" id="hours">
+  <div class="eyebrow">Hours & Location</div>
+  <h2 class="section-h2">Find us on<br><em>Sherman Way.</em></h2>
+  <div class="hours-inner">
+    <table class="hours-table">
+      <tr><td class="day">Monday</td><td class="time">9:30 AM – 7:00 PM</td></tr>
+      <tr><td class="day">Tuesday</td><td class="time">9:30 AM – 7:00 PM</td></tr>
+      <tr><td class="day">Wednesday</td><td class="time">9:30 AM – 7:00 PM</td></tr>
+      <tr><td class="day">Thursday</td><td class="time">9:30 AM – 7:00 PM</td></tr>
+      <tr><td class="day">Friday</td><td class="time">9:30 AM – 7:00 PM</td></tr>
+      <tr><td class="day">Saturday</td><td class="time">9:00 AM – 7:00 PM</td></tr>
+      <tr><td class="day">Sunday</td><td class="closed">Closed</td></tr>
+    </table>
+    <div class="contact-stack">
+      <div class="contact-tile">
+        <div class="contact-tile-label">Phone</div>
+        <a href="tel:8187643088" class="contact-tile-val">(818) 764-3088</a>
+        <div class="contact-tile-sub">Call to book or ask for Daisy or Kelly</div>
+      </div>
+      <div class="contact-tile">
+        <div class="contact-tile-label">Address</div>
+        <div class="contact-tile-val" style="font-size:clamp(16px,2.5vw,20px);cursor:default">12650 Sherman Way, Ste 2</div>
+        <div class="contact-tile-sub">North Hollywood, CA 91605 · Inside Bellaire Plaza</div>
+        <a href="https://www.google.com/maps/search/K+Nails+12650+Sherman+Way+North+Hollywood" target="_blank" class="dir-btn">📍 Get Directions</a>
+      </div>
+      <div class="contact-tile">
+        <div class="contact-tile-label">Walk-ins</div>
+        <div class="contact-tile-val" style="font-size:clamp(16px,2vw,20px);cursor:default">Always Welcome</div>
+        <div class="contact-tile-sub">Mon–Sat, no appointment needed. Weekdays are less busy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section reveal" id="booking">
+  <div class="booking-inner">
+    <div>
+      <div class="eyebrow">Appointments</div>
+      <h2 class="section-h2">Book your<br><em>session.</em></h2>
+      <p class="booking-intro">Reserve your preferred time slot and request Daisy or Kelly specifically. Walk-ins always welcome Mon–Sat.</p>
+    </div>
+    <div class="booking-form">
+      <div class="form-title">Request Appointment</div>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="First name"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="(818) 000-0000"></div>
+      </div>
+      <div class="form-group">
+        <label>Service</label>
+        <select>
+          <option>Organic Dip Powder</option>
+          <option>Manicure (Classic)</option>
+          <option>Manicure (Gel)</option>
+          <option>Pedicure (Spa)</option>
+          <option>Pedicure (Gel)</option>
+          <option>Acrylic Full Set</option>
+          <option>Acrylic Fill</option>
+          <option>Nail Art</option>
+          <option>Full Body Waxing</option>
+          <option>Mani + Pedi Combo</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Date</label><input type="date"></div>
+        <div class="form-group">
+          <label>Time</label>
+          <select>
+            <option>Morning (9:30am–12pm)</option>
+            <option>Afternoon (12pm–4pm)</option>
+            <option>Late (4pm–7pm)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Preferred Technician (optional)</label>
+        <select>
+          <option>No preference</option>
+          <option>Daisy</option>
+          <option>Kelly</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Notes</label><textarea placeholder="Design ideas, special requests, or anything we should know..."></textarea></div>
+      <button class="form-submit">Request Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><em>K</em> Nails</div>
+  <div class="footer-tagline">Organic nail care and full body waxing in North Hollywood, CA. One of the neighborhood's original nail salons.</div>
+  <a href="tel:8187643088" class="footer-phone">(818) 764-3088</a>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Organic Dip Powder</li>
+        <li>Natural Nail Care</li>
+        <li>Manicure & Pedicure</li>
+        <li>Acrylic & Gel</li>
+        <li>Nail Art</li>
+        <li>Full Body Waxing</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li>12650 Sherman Way, Ste 2<br>North Hollywood, CA 91605</li>
+        <li>Mon–Fri: 9:30am–7pm</li>
+        <li>Saturday: 9am–7pm</li>
+        <li>Sunday: Closed</li>
+        <li>Inside Bellaire Plaza</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 K Nails · North Hollywood, CA 91605</p>
+    <p class="footer-seo">k nails north hollywood · organic nail salon north hollywood · dip powder nails noho · nail salon sherman way</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const hmap={Monday:'9:30am – 7pm',Tuesday:'9:30am – 7pm',Wednesday:'9:30am – 7pm',Thursday:'9:30am – 7pm',Friday:'9:30am – 7pm',Saturday:'9am – 7pm',Sunday:'Closed'};
+const today=days[new Date().getDay()];
+const el=document.getElementById('hours-today');
+if(el)el.textContent=hmap[today]||'—';
+document.querySelectorAll('.hours-table tr').forEach(row=>{if(row.querySelector('.day')?.textContent.trim()===today)row.classList.add('today')});
+function toggleAcc(btn){const body=btn.nextElementSibling;const isOpen=btn.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});if(!isOpen){btn.classList.add('open');body.classList.add('open')}}
+</script>
+</body>
+</html>
